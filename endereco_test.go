@@ -6,8 +6,8 @@ import (
 	"testing"
 )
 
-func TestConsultaEnderece(t *testing.T) {
-	response, err := client.ConsultaEndereco("")
+func TestConsultarEndereco(t *testing.T) {
+	response, err := client.ConsultarEndereco("")
 	assert.NoError(t, err)
 	spew.Dump(response)
 }

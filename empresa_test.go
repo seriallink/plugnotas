@@ -6,14 +6,14 @@ import (
 	"testing"
 )
 
-func TestListaEmpresas(t *testing.T) {
-	response, err := client.ListaEmpresas()
+func TestListarEmpresas(t *testing.T) {
+	response, err := client.ListarEmpresas()
 	assert.NoError(t, err)
 	spew.Dump(response)
 }
 
-func TestConsultaEmpresa(t *testing.T) {
-	response, err := client.ConsultaEmpresa("")
+func TestConsultarEmpresa(t *testing.T) {
+	response, err := client.ConsultarEmpresa("")
 	assert.NoError(t, err)
 	spew.Dump(response)
 }
@@ -47,4 +47,16 @@ func TestCadastrarEmpresa(t *testing.T) {
 	assert.NoError(t, err)
 	//assert.Equal(t, "", response.Data.Id)
 	//spew.Dump(err, response.Data)
+}
+
+func TestAlterarEmpresa(t *testing.T) {
+
+	empresa := &Empresa{
+		CpfCnpj:     "",
+		Certificado: "",
+	}
+
+	err := client.AlterarEmpresa(empresa)
+	assert.NoError(t, err)
+
 }

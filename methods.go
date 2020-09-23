@@ -44,7 +44,7 @@ func (c *Client) execute(method string, path string, params interface{}, headers
 
 	// set request
 	request, _ := http.NewRequest(method, url, payload)
-	request.Header.Add("x-api-key", c.GetAuthorization())
+	request.Header.Add("x-api-key", c.GetToken())
 	request.Header.Add("accept", "application/json")
 	request.Header.Add("content-type", "application/json")
 
@@ -124,20 +124,25 @@ func (c *Client) execute(method string, path string, params interface{}, headers
 
 // Execute GET requests
 func (c *Client) Get(path string, params interface{}, headers Headers, model interface{}) error {
-	return c.execute("GET", path, params, headers, model)
+	return c.execute(http.MethodGet, path, params, headers, model)
 }
 
 // Execute POST requests
 func (c *Client) Post(path string, params interface{}, headers Headers, model interface{}) error {
-	return c.execute("POST", path, params, headers, model)
+	return c.execute(http.MethodPost, path, params, headers, model)
 }
 
 // Execute PUT requests
 func (c *Client) Put(path string, params interface{}, headers Headers, model interface{}) error {
-	return c.execute("PUT", path, params, headers, model)
+	return c.execute(http.MethodPut, path, params, headers, model)
+}
+
+// Execute PATCH requests
+func (c *Client) Patch(path string, params interface{}, headers Headers, model interface{}) error {
+	return c.execute(http.MethodPatch, path, params, headers, model)
 }
 
 // Execute DELETE requests
 func (c *Client) Delete(path string, params interface{}, headers Headers, model interface{}) error {
-	return c.execute("DELETE", path, params, headers, model)
+	return c.execute(http.MethodDelete, path, params, headers, model)
 }

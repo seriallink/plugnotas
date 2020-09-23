@@ -19,17 +19,22 @@ type Empresa struct {
 	Nfe                      *Nfe      `json:"nfe,omitempty"`
 }
 
-func (c *Client) ListaEmpresas() (empresas []Empresa, err error) {
+func (c *Client) ListarEmpresas() (empresas []Empresa, err error) {
 	err = c.Get("empresa/", nil, nil, &empresas)
 	return
 }
 
-func (c *Client) ConsultaEmpresa(cpfCnpj string) (empresa Empresa, err error) {
+func (c *Client) ConsultarEmpresa(cpfCnpj string) (empresa Empresa, err error) {
 	err = c.Get("empresa/"+cpfCnpj, nil, nil, &empresa)
 	return
 }
 
 func (c *Client) CadastrarEmpresa(empresa *Empresa) (err error) {
 	err = c.Post("empresa/", empresa, nil, &empresa)
+	return
+}
+
+func (c *Client) AlterarEmpresa(empresa *Empresa) (err error) {
+	err = c.Patch("empresa/"+empresa.CpfCnpj, empresa, nil, &empresa)
 	return
 }

@@ -12,7 +12,7 @@ func NewClient(token string, sandbox bool) *Client {
 	}
 }
 
-func (c *Client) GetAuthorization() string {
+func (c *Client) GetToken() string {
 	return c.token
 }
 

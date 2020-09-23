@@ -7,7 +7,7 @@ import (
 )
 
 func TestListaCertificados(t *testing.T) {
-	certificados, err := client.ListaCertificados()
+	certificados, err := client.ListarCertificados()
 	assert.NoError(t, err)
 	spew.Dump(certificados)
 }
@@ -15,7 +15,7 @@ func TestListaCertificados(t *testing.T) {
 func TestUploadCertificate(t *testing.T) {
 	arquivo := ""
 	senha := ""
-	id, err := client.UploadCertificate(arquivo, senha, "")
+	id, err := client.CadastrarCertificado(arquivo, senha, "")
 	assert.NoError(t, err)
 	spew.Dump(id)
 }

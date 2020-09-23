@@ -25,7 +25,7 @@ type IBGE struct {
 	Codigo      string `json:"ibge"`
 }
 
-func (c *Client) ConsultaEndereco(cep string) (ibge IBGE, err error) {
+func (c *Client) ConsultarEndereco(cep string) (ibge IBGE, err error) {
 	err = c.Get("cep/"+cep, nil, nil, &ibge)
 	return
 }

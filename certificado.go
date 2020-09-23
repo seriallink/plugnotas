@@ -20,12 +20,12 @@ type Certificado struct {
 	Email      string `json:"email"`
 }
 
-func (c *Client) ListaCertificados() (certificados []Certificado, err error) {
+func (c *Client) ListarCertificados() (certificados []Certificado, err error) {
 	err = c.Get("certificado/", nil, nil, &certificados)
 	return
 }
 
-func (c *Client) UploadCertificate(arquivo, senha, email string) (id string, err error) {
+func (c *Client) CadastrarCertificado(arquivo, senha, email string) (id string, err error) {
 
 	var (
 		file *os.File
@@ -76,7 +76,7 @@ func (c *Client) UploadCertificate(arquivo, senha, email string) (id string, err
 
 	// set request
 	req, _ := http.NewRequest(http.MethodPost, fmt.Sprintf("%scertificado", c.GetEndpoint()), payload)
-	req.Header.Add("x-api-key", c.GetAuthorization())
+	req.Header.Add("x-api-key", c.GetToken())
 	req.Header.Add("content-type", "multipart/form-data")
 	req.Header.Set("content-type", writer.FormDataContentType())
 
