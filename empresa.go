@@ -8,9 +8,9 @@ type Empresa struct {
 	NomeFantasia             *string     `json:"nomeFantasia,omitempty"`
 	Certificado              *string     `json:"certificado,omitempty"`
 	SimplesNacional          *bool       `json:"simplesNacional,omitempty"`
-	RegimeTributario         *int        `json:"regimeTributario,omitempty"`
 	IncentivoFiscal          *bool       `json:"incentivoFiscal,omitempty"`
 	IncentivadorCultural     *bool       `json:"incentivadorCultural,omitempty"`
+	RegimeTributario         *int        `json:"regimeTributario,omitempty"`
 	RegimeTributarioEspecial *int        `json:"regimeTributarioEspecial,omitempty"`
 	Email                    *string     `json:"email,omitempty"`
 	Endereco                 *Endereco   `json:"endereco,omitempty"`
