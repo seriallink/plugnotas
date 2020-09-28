@@ -56,17 +56,17 @@ type NFeResumo struct {
 }
 
 type NFeObject struct {
-	Ativo        bool       `json:"ativo,omitempty"`
-	TipoContrato int        `json:"tipoContrato,omitempty"`
+	Ativo        *bool      `json:"ativo,omitempty"`
+	TipoContrato *int       `json:"tipoContrato,omitempty"`
 	Config       *NFeConfig `json:"config,omitempty"`
 }
 
 type NFeConfig struct {
-	Producao          bool `json:"producao,omitempty"`
-	ImpressaoFcp      bool `json:"impressaoFcp,omitempty"`
-	ImpressaoPartilha bool `json:"impressaoPartilha,omitempty"`
-	Serie             int  `json:"serie,omitempty"`
-	Numero            int  `json:"numero,omitempty"`
+	Producao          *bool `json:"producao,omitempty"`
+	ImpressaoFcp      *bool `json:"impressaoFcp,omitempty"`
+	ImpressaoPartilha *bool `json:"impressaoPartilha,omitempty"`
+	Serie             *int  `json:"serie,omitempty"`
+	Numero            *int  `json:"numero,omitempty"`
 }
 
 func (c *Client) EmitirNFe(nfes []NFe) (*NfResponse, error) {

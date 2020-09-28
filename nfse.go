@@ -1,15 +1,15 @@
 package plugnotas
 
 type NFSe struct {
-	IdIntegracao              string           `json:"idIntegracao,omitempty"`
-	IdNotaSubstituida         string           `json:"idNotaSubstituida,omitempty"`
-	Descricao                 string           `json:"descricao,omitempty"`
-	InformacoesComplementares string           `json:"informacoesComplementares,omitempty"`
-	NaturezaTributacao        int              `json:"naturezaTributacao,omitempty"`
-	BaseCalculoIrrf           float64          `json:"baseCalculoIrrf,omitempty"`
-	ValorIrrfRetido           float64          `json:"valorIrrfRetido,omitempty"`
-	EnviarEmail               bool             `json:"enviarEmail,omitempty"`
-	Substituicao              bool             `json:"substituicao,omitempty"`
+	IdIntegracao              *string          `json:"idIntegracao,omitempty"`
+	IdNotaSubstituida         *string          `json:"idNotaSubstituida,omitempty"`
+	Descricao                 *string          `json:"descricao,omitempty"`
+	InformacoesComplementares *string          `json:"informacoesComplementares,omitempty"`
+	NaturezaTributacao        *int             `json:"naturezaTributacao,omitempty"`
+	BaseCalculoIrrf           *float64         `json:"baseCalculoIrrf,omitempty"`
+	ValorIrrfRetido           *float64         `json:"valorIrrfRetido,omitempty"`
+	EnviarEmail               *bool            `json:"enviarEmail,omitempty"`
+	Substituicao              *bool            `json:"substituicao,omitempty"`
 	Servico                   []Servico        `json:"servico,omitempty"`
 	Parcelas                  []Parcela        `json:"parcelas,omitempty"`
 	Prestador                 *Prestador       `json:"prestador,omitempty"`
@@ -22,13 +22,13 @@ type NFSe struct {
 }
 
 type NFSeObject struct {
-	Ativo        bool        `json:"ativo,omitempty"`
-	TipoContrato int         `json:"tipoContrato,omitempty"`
+	Ativo        *bool       `json:"ativo,omitempty"`
+	TipoContrato *int        `json:"tipoContrato,omitempty"`
 	Config       *NFSeConfig `json:"config,omitempty"`
 }
 
 type NFSeConfig struct {
-	Producao   bool        `json:"producao,omitempty"`
+	Producao   *bool       `json:"producao,omitempty"`
 	Rps        *RpsConfig  `json:"rps,omitempty"`
 	Prefeitura *Prefeitura `json:"prefeitura,omitempty"`
 	Email      *Email      `json:"email,omitempty"`
