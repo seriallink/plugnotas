@@ -13,9 +13,7 @@ func TestListaCertificados(t *testing.T) {
 }
 
 func TestUploadCertificate(t *testing.T) {
-	arquivo := ""
-	senha := ""
-	id, err := client.CadastrarCertificado(arquivo, senha, "")
+	id, err := client.CadastrarCertificado("", "", "")
 	assert.NoError(t, err)
 	spew.Dump(id)
 }

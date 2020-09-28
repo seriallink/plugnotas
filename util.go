@@ -11,3 +11,19 @@ func NotIn(value interface{}, list ...interface{}) bool {
 	return true
 
 }
+
+func StringPtr(value string) *string {
+	return &value
+}
+
+func IntPtr(value int) *int {
+	return &value
+}
+
+func FloatPtr(value float64) *float64 {
+	return &value
+}
+
+func BoolStr(value bool) *bool {
+	return &value
+}

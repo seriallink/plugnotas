@@ -20,40 +20,38 @@ func TestConsultarEmpresa(t *testing.T) {
 
 func TestCadastrarEmpresa(t *testing.T) {
 	empresa := &Empresa{
-		CpfCnpj:                  "",
-		RazaoSocial:              "",
-		NomeFantasia:             "",
-		InscricaoEstadual:        "",
-		Email:                    "",
-		SimplesNacional:          true,
-		RegimeTributario:         1,
-		RegimeTributarioEspecial: 5,
+		CpfCnpj:                  StringPtr(""),
+		RazaoSocial:              StringPtr(""),
+		NomeFantasia:             StringPtr(""),
+		InscricaoEstadual:        StringPtr(""),
+		Email:                    StringPtr(""),
+		SimplesNacional:          BoolStr(true),
+		RegimeTributario:         IntPtr(1),
+		RegimeTributarioEspecial: IntPtr(5),
 		Endereco: &Endereco{
-			TipoLogradouro: "",
-			Logradouro:     "",
-			Numero:         "",
-			Complemento:    "",
-			//TipoBairro:      "",
-			Bairro:     "",
-			CodigoPais: "",
-			//DescricaoPais:   "",
-			CodigoCidade:    "",
-			DescricaoCidade: "",
-			Estado:          "",
-			Cep:             "",
+			TipoLogradouro:  StringPtr(""),
+			Logradouro:      StringPtr(""),
+			Numero:          StringPtr(""),
+			Complemento:     StringPtr(""),
+			TipoBairro:      StringPtr(""),
+			Bairro:          StringPtr(""),
+			CodigoPais:      StringPtr(""),
+			DescricaoPais:   StringPtr(""),
+			CodigoCidade:    StringPtr(""),
+			DescricaoCidade: StringPtr(""),
+			Estado:          StringPtr(""),
+			Cep:             StringPtr(""),
 		},
 	}
 	err := client.CadastrarEmpresa(empresa)
 	assert.NoError(t, err)
-	//assert.Equal(t, "", response.Data.Id)
-	//spew.Dump(err, response.Data)
 }
 
 func TestAlterarEmpresa(t *testing.T) {
 
 	empresa := &Empresa{
-		CpfCnpj:     "",
-		Certificado: "",
+		CpfCnpj:     StringPtr(""),
+		Certificado: StringPtr(""),
 	}
 
 	err := client.AlterarEmpresa(empresa)
