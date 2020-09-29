@@ -93,3 +93,14 @@ func (c *Client) CancelarNFe(id, justificativa string) (*NfResponse, error) {
 	err := c.Post(fmt.Sprintf("nfe/%s/cancelamento", id), params, nil, resp)
 	return resp, err
 }
+
+func (c *Client) DownloadNFePDF(id string) (pdf []byte, err error) {
+	pdf = make([]byte, 0)
+	err = c.Get(fmt.Sprintf("nfe/%s/pdf/", id), nil, nil, &pdf)
+	return
+}
+
+func (c *Client) DownloadNFeXML(id string) (xml string, err error) {
+	err = c.Get(fmt.Sprintf("nfe/%s/xml/", id), nil, nil, &xml)
+	return
+}
