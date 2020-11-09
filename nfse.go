@@ -4,6 +4,7 @@ type NFSe struct {
 	IdIntegracao              *string          `json:"idIntegracao,omitempty"`
 	IdNotaSubstituida         *string          `json:"idNotaSubstituida,omitempty"`
 	Descricao                 *string          `json:"descricao,omitempty"`
+	Status                    *string          `json:"status,omitempty"`
 	InformacoesComplementares *string          `json:"informacoesComplementares,omitempty"`
 	NaturezaTributacao        *int             `json:"naturezaTributacao,omitempty"`
 	BaseCalculoIrrf           *float64         `json:"baseCalculoIrrf,omitempty"`
