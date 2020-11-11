@@ -24,6 +24,6 @@ func FloatPtr(value float64) *float64 {
 	return &value
 }
 
-func BoolStr(value bool) *bool {
+func BoolPtr(value bool) *bool {
 	return &value
 }
