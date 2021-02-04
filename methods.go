@@ -22,28 +22,55 @@ type Headers map[string]string
 // Make request and return the response
 func (c *Client) execute(method string, path string, params interface{}, headers Headers, model interface{}) error {
 
-	// init vars
-	var url = c.GetEndpoint() + path
+	var request *http.Request
 
-	// init an empty payload
-	payload := strings.NewReader("")
+	// mount endpoint
+	var endpoint = c.GetEndpoint() + path
 
 	// check for params
 	if params != nil {
 
-		// marshal params
-		b, err := json.Marshal(params)
-		if err != nil {
-			return err
+		// send as body
+		if method != http.MethodGet {
+
+			// marshal params
+			b, err := json.Marshal(params)
+			if err != nil {
+				return err
+			}
+
+			// set payload with params
+			payload := strings.NewReader(string(b))
+
+			// set request with payload
+			request, _ = http.NewRequest(method, endpoint, payload)
+
+		} else {
+
+			// init request
+			request, _ = http.NewRequest(method, endpoint, nil)
+
+			// init query string
+			query := request.URL.Query()
+
+			// add params
+			for key, value := range params.(Params) {
+				query.Add(key, value.(string))
+			}
+
+			// set query string
+			request.URL.RawQuery = query.Encode()
+
 		}
 
-		// set payload with params
-		payload = strings.NewReader(string(b))
+	} else {
+
+		// set request without payload
+		request, _ = http.NewRequest(method, endpoint, nil)
 
 	}
 
-	// set request
-	request, _ := http.NewRequest(method, url, payload)
+	// set header
 	request.Header.Add("x-api-key", c.GetToken())
 	request.Header.Add("accept", "application/json")
 	request.Header.Add("content-type", "application/json")

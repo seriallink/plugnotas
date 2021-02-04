@@ -55,6 +55,16 @@ type NFeResumo struct {
 	Erro             string  `json:"erro"`
 }
 
+type NFeListagemCompleta struct {
+	Notas             []NFe  `json:"notas,omitempty"`
+	HashProximaPagina string `json:"hashProximaPagina,omitempty"`
+}
+
+type NFeListagemResumo struct {
+	Notas             []NFeResumo `json:"notas,omitempty"`
+	HashProximaPagina string      `json:"hashProximaPagina,omitempty"`
+}
+
 type NFeObject struct {
 	Ativo        *bool      `json:"ativo,omitempty"`
 	TipoContrato *int       `json:"tipoContrato,omitempty"`
@@ -83,6 +93,12 @@ func (c *Client) ConsultarNFe(id string) (*NFeResumo, error) {
 		return &nfes[0], err
 	}
 	return &NFeResumo{}, err
+}
+
+func (c *Client) ListarNFes(cpfCnpj string) (lista NFeListagemResumo, err error) {
+	params := Params{"cpfCnpj": cpfCnpj}
+	err = c.Get("nfe/consulta/periodo", params, nil, &lista)
+	return
 }
 
 func (c *Client) CancelarNFe(id, justificativa string) (*NfResponse, error) {
