@@ -1,5 +1,5 @@
 package plugnotas
 
 type Impressao struct {
-	CamposCustomizados *CamposCustomizados `json:"camposCustomizados"`
+	CamposCustomizados *CamposCustomizados `json:"camposCustomizados,omitempty"`
 }
