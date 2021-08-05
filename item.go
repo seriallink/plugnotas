@@ -27,7 +27,7 @@ type Item struct {
 	Importacao                *Importacao                `json:"importacao,omitempty"`
 	Compra                    *Compra                    `json:"compra,omitempty"`
 	Unidade                   *ComercialTributavelString `json:"unidade,omitempty"`
-	Quatidade                 *ComercialTributavelNumber `json:"quatidade,omitempty"`
+	Quantidade                *ComercialTributavelNumber `json:"quantidade,omitempty"`
 	ValorUnitario             *ComercialTributavelNumber `json:"valorUnitario,omitempty"`
 	Combustivel               *Combustivel               `json:"combustivel,omitempty"`
 	Medicamentos              []Medicamento              `json:"medicamentos,omitempty"`
