@@ -113,11 +113,11 @@ func (c *Client) CancelarNFe(id, justificativa string) (*NfResponse, error) {
 
 func (c *Client) DownloadNFePDF(id string) (pdf []byte, err error) {
 	pdf = make([]byte, 0)
-	err = c.Get(fmt.Sprintf("nfe/%s/pdf/", id), nil, nil, &pdf)
+	err = c.Get(fmt.Sprintf("nfe/%s/pdf", id), nil, nil, &pdf)
 	return
 }
 
 func (c *Client) DownloadNFeXML(id string) (xml string, err error) {
-	err = c.Get(fmt.Sprintf("nfe/%s/xml/", id), nil, nil, &xml)
+	err = c.Get(fmt.Sprintf("nfe/%s/xml", id), nil, nil, &xml)
 	return
 }
