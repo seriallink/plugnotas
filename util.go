@@ -1,5 +1,16 @@
 package plugnotas
 
+func In(value string, list ...string) bool {
+
+	for _, element := range list {
+		if value == element {
+			return true
+		}
+	}
+
+	return false
+}
+
 func NotIn(value interface{}, list ...interface{}) bool {
 
 	for _, element := range list {
