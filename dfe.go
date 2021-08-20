@@ -62,8 +62,10 @@ type DFe struct {
 	Compra                                *Compra             `json:"compra,omitempty"`
 	IntermediadorTransacao                *Intermediador      `json:"intermediadorTransacao,omitempty"`
 	Cancelamento                          *Cancelamento       `json:"cancelamento,omitempty"`
-	Observacoes                           *Observacoes
-	CamposExtras                          *CamposExtras `json:"camposExtras,omitempty"`
+	Observacoes                           *Observacoes        `json:"observacoes,omitempty"`
+	CamposExtras                          *CamposExtras       `json:"camposExtras,omitempty"`
+	CreatedAt                             *time.Time          `json:"createdAt,omitempty"`
+	UpdatedAt                             *time.Time          `json:"updatedAt,omitempty"`
 }
 
 type DFeListagem struct {
