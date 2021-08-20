@@ -17,11 +17,13 @@ type DFeConfig struct {
 }
 
 type DFe struct {
+	Id                                    *string             `json:"id,omitempty"`
 	IdIntegracao                          *string             `json:"idIntegracao,omitempty"`
 	Codigo                                *string             `json:"codigo,omitempty"`
 	Numero                                *string             `json:"numero,omitempty"`
 	Serie                                 *string             `json:"serie,omitempty"`
 	Chave                                 *string             `json:"chave,omitempty"`
+	Protocol                              *string             `json:"protocol,omitempty"`
 	Recibo                                *string             `json:"recibo,omitempty"`
 	Status                                *string             `json:"status,omitempty"`
 	Finalidade                            *string             `json:"finalidade,omitempty"`
@@ -36,11 +38,15 @@ type DFe struct {
 	InformacoesComplementaresContribuinte *string             `json:"informacoesComplementaresContribuinte,omitempty"`
 	InformacoesComplementares             *string             `json:"informacoesComplementares,omitempty"`
 	VersaoManual                          *string             `json:"versaoManual,omitempty"`
+	PDF                                   *string             `json:"pdf,omitempty"`
+	XML                                   *string             `json:"xml,omitempty"`
 	Intermediador                         *int                `json:"intermediador,omitempty"`
+	Producao                              *bool               `json:"producao,omitempty"`
 	Saida                                 *bool               `json:"saida,omitempty"`
 	Presencial                            *bool               `json:"presencial,omitempty"`
 	ConsumidorFinal                       *bool               `json:"consumidorFinal,omitempty"`
 	Enviaremail                           *bool               `json:"enviaremail,omitempty"`
+	Retorno                               interface{}         `json:"retorno,omitempty"`
 	NotaReferenciada                      *NotasReferenciadas `json:"notaReferenciada,omitempty"`
 	Emitente                              *Emitente           `json:"emitente,omitempty"`
 	Destinatario                          *Destinatario       `json:"destinatario,omitempty"`
@@ -55,7 +61,9 @@ type DFe struct {
 	Exportacao                            *Exportacao         `json:"exportacao,omitempty"`
 	Compra                                *Compra             `json:"compra,omitempty"`
 	IntermediadorTransacao                *Intermediador      `json:"intermediadorTransacao,omitempty"`
-	CamposExtras                          *CamposExtras       `json:"camposExtras,omitempty"`
+	Cancelamento                          *Cancelamento       `json:"cancelamento,omitempty"`
+	Observacoes                           *Observacoes
+	CamposExtras                          *CamposExtras `json:"camposExtras,omitempty"`
 }
 
 type DFeListagem struct {
