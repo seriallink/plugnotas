@@ -55,11 +55,6 @@ type NFeResumo struct {
 	Erro             string  `json:"erro"`
 }
 
-type NFeListagemCompleta struct {
-	Notas             []NFe  `json:"notas,omitempty"`
-	HashProximaPagina string `json:"hashProximaPagina,omitempty"`
-}
-
 type NFeListagemResumo struct {
 	Notas             []NFeResumo `json:"notas,omitempty"`
 	HashProximaPagina string      `json:"hashProximaPagina,omitempty"`
