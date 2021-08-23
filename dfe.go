@@ -46,6 +46,7 @@ type DFe struct {
 	Presencial                            *bool               `json:"presencial,omitempty"`
 	ConsumidorFinal                       *bool               `json:"consumidorFinal,omitempty"`
 	Enviaremail                           *bool               `json:"enviaremail,omitempty"`
+	Importada                             *bool               `json:"importada,omitempty"`
 	Retorno                               interface{}         `json:"retorno,omitempty"`
 	NotaReferenciada                      *NotasReferenciadas `json:"notaReferenciada,omitempty"`
 	Emitente                              *Emitente           `json:"emitente,omitempty"`
