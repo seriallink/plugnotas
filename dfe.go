@@ -26,7 +26,7 @@ type DFe struct {
 	Protocol                              *string             `json:"protocol,omitempty"`
 	Recibo                                *string             `json:"recibo,omitempty"`
 	Status                                *string             `json:"status,omitempty"`
-	Finalidade                            *string             `json:"finalidade,omitempty"`
+	Finalidade                            *int                `json:"finalidade,omitempty"`
 	Natureza                              *string             `json:"natureza,omitempty"`
 	DataEmissao                           *string             `json:"dataEmissao,omitempty"`
 	DataSaidaEntrada                      *string             `json:"dataSaidaEntrada,omitempty"`
