@@ -139,7 +139,7 @@ func (c *Client) execute(method string, path string, params interface{}, headers
 	}
 
 	// xml
-	if len(data) > 5 && In(string(data)[:5], "<?xml", "<Nfse", "<NFe ") {
+	if len(data) > 5 && In(string(data)[:5], "<?xml", "<Nfse", "<NFe ", "<nfeP") {
 		*model.(*string) = string(data)
 		return nil
 	}
