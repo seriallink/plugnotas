@@ -86,7 +86,7 @@ func (c *Client) ListarDFes(cpfCnpj string, manifestada bool, dataInicial, dataF
 		params["dataFinal"] = dataFinal.Format("2006-01-02")
 	}
 	if hashProximaPagina != nil {
-		params["hashProximaPagina"] = hashProximaPagina
+		params["hashProximaPagina"] = *hashProximaPagina
 	}
 	err = c.Get("nfe/destinada", params, nil, &list)
 	return
