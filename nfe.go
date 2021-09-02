@@ -106,6 +106,25 @@ func (c *Client) CancelarNFe(id, justificativa string) (*NfResponse, error) {
 	return resp, err
 }
 
+func (c *Client) ConsultarCancelamentoNFe(id string) (*CancelamentoStatus, error) {
+	resp := new(CancelamentoStatus)
+	err := c.Get(fmt.Sprintf("nfe/%s/cancelamento/status", id), nil, nil, resp)
+	return resp, err
+}
+
+func (c *Client) CorrigirNFe(id, correcao string) (*NfResponse, error) {
+	params := map[string]string{"correcao": correcao}
+	resp := new(NfResponse)
+	err := c.Post(fmt.Sprintf("nfe/%s/cce", id), params, nil, resp)
+	return resp, err
+}
+
+func (c *Client) ConsultarCorrecaoNFe(id string) (*CorrecaoStatus, error) {
+	resp := new(CorrecaoStatus)
+	err := c.Get(fmt.Sprintf("nfe/%s/cce/status", id), nil, nil, resp)
+	return resp, err
+}
+
 func (c *Client) DownloadNFePDF(id string) (pdf []byte, err error) {
 	pdf = make([]byte, 0)
 	err = c.Get(fmt.Sprintf("nfe/%s/pdf", id), nil, nil, &pdf)
