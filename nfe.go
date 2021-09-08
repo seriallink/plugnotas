@@ -99,6 +99,9 @@ func (c *Client) ConsultarNFeProc(id string) (*NfeProc, error) {
 	if err != nil {
 		return nil, err
 	}
+	if data[:4] == "<NFe" {
+		data = fmt.Sprintf(`<?xml version="1.0" encoding="UTF-8"?><nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">%s</nfeProc>`, data)
+	}
 	if err = xml.Unmarshal([]byte(data), resp); err != nil {
 		return nil, err
 	}
