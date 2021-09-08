@@ -1,7 +1,6 @@
 package plugnotas
 
 import (
-	"encoding/xml"
 	"fmt"
 )
 
@@ -91,21 +90,6 @@ func (c *Client) ConsultarNFe(id string) (*NFeResumo, error) {
 		return &nfes[0], err
 	}
 	return &NFeResumo{}, err
-}
-
-func (c *Client) ConsultarNFeProc(id string) (*NfeProc, error) {
-	resp := new(NfeProc)
-	data, err := c.DownloadNFeXML(id)
-	if err != nil {
-		return nil, err
-	}
-	if data[:4] == "<NFe" {
-		data = fmt.Sprintf(`<?xml version="1.0" encoding="UTF-8"?><nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">%s</nfeProc>`, data)
-	}
-	if err = xml.Unmarshal([]byte(data), resp); err != nil {
-		return nil, err
-	}
-	return resp, err
 }
 
 func (c *Client) ListarNFes(cpfCnpj string) (lista NFeListagemResumo, err error) {
