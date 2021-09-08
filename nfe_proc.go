@@ -4,236 +4,238 @@ import "encoding/xml"
 
 type NfeProc struct {
 	XMLName xml.Name `xml:"nfeProc"`
-	Text    string   `xml:",chardata"`
-	Versao  string   `xml:"versao,attr"`
+	Text    string   `xml:",chardata"   json:"text"`
+	Versao  string   `xml:"versao,attr" json:"versao"`
 	Xmlns   string   `xml:"xmlns,attr"`
 	NFe     struct {
-		Text   string `xml:",chardata"`
+		Text   string `xml:",chardata" json:"text"`
 		Xmlns  string `xml:"xmlns,attr"`
 		InfNFe struct {
-			Text   string `xml:",chardata"`
-			ID     string `xml:"Id,attr"`
-			Versao string `xml:"versao,attr"`
+			Text   string `xml:",chardata"   json:"text"`
+			ID     string `xml:"Id,attr"     json:"id"`
+			Versao string `xml:"versao,attr" json:"versao"`
 			Ide    struct {
-				Text     string `xml:",chardata"`
-				CUF      string `xml:"cUF"`
-				CNF      string `xml:"cNF"`
-				NatOp    string `xml:"natOp"`
-				Mod      string `xml:"mod"`
-				Serie    string `xml:"serie"`
-				NNF      string `xml:"nNF"`
-				DhEmi    string `xml:"dhEmi"`
-				TpNF     string `xml:"tpNF"`
-				IdDest   string `xml:"idDest"`
-				CMunFG   string `xml:"cMunFG"`
-				TpImp    string `xml:"tpImp"`
-				TpEmis   string `xml:"tpEmis"`
-				CDV      string `xml:"cDV"`
-				TpAmb    string `xml:"tpAmb"`
-				FinNFe   string `xml:"finNFe"`
-				IndFinal string `xml:"indFinal"`
-				IndPres  string `xml:"indPres"`
-				ProcEmi  string `xml:"procEmi"`
-				VerProc  string `xml:"verProc"`
-			} `xml:"ide"`
+				Text     string `xml:",chardata" json:"text"`
+				CUF      string `xml:"cUF"       json:"cUF"`
+				CNF      string `xml:"cNF"       json:"cNF"`
+				NatOp    string `xml:"natOp"     json:"natOp"`
+				Mod      string `xml:"mod"       json:"mod"`
+				Serie    string `xml:"serie"     json:"serie"`
+				NNF      string `xml:"nNF"       json:"nNF"`
+				DhEmi    string `xml:"dhEmi"     json:"dhEmi"`
+				TpNF     string `xml:"tpNF"      json:"tpNF"`
+				IdDest   string `xml:"idDest"    json:"idDest"`
+				CMunFG   string `xml:"cMunFG"    json:"cMunFG"`
+				TpImp    string `xml:"tpImp"     json:"tpImp"`
+				TpEmis   string `xml:"tpEmis"    json:"tpEmis"`
+				CDV      string `xml:"cDV"       json:"cDV"`
+				TpAmb    string `xml:"tpAmb"     json:"tpAmb"`
+				FinNFe   string `xml:"finNFe"    json:"finNFe"`
+				IndFinal string `xml:"indFinal"  json:"indFinal"`
+				IndPres  string `xml:"indPres"   json:"indPres"`
+				ProcEmi  string `xml:"procEmi"   json:"procEmi"`
+				VerProc  string `xml:"verProc"   json:"verProc"`
+			} `xml:"ide" json:"ide"`
 			Emit struct {
-				Text      string `xml:",chardata"`
-				CPF       string `xml:"CPF"`
-				XNome     string `xml:"xNome"`
-				XFant     string `xml:"xFant"`
+				Text      string `xml:",chardata" json:"text"`
+				CPF       string `xml:"CPF"       json:"CPF"`
+				XNome     string `xml:"xNome"     json:"xNome"`
+				XFant     string `xml:"xFant"     json:"xFant"`
 				EnderEmit struct {
-					Text    string `xml:",chardata"`
-					XLgr    string `xml:"xLgr"`
-					Nro     string `xml:"nro"`
-					XCpl    string `xml:"xCpl"`
-					XBairro string `xml:"xBairro"`
-					CMun    string `xml:"cMun"`
-					XMun    string `xml:"xMun"`
-					UF      string `xml:"UF"`
-					CEP     string `xml:"CEP"`
-					CPais   string `xml:"cPais"`
-					XPais   string `xml:"xPais"`
-					Fone    string `xml:"fone"`
-				} `xml:"enderEmit"`
-				IE  string `xml:"IE"`
-				CRT string `xml:"CRT"`
-			} `xml:"emit"`
+					Text    string `xml:",chardata" json:"text"`
+					XLgr    string `xml:"xLgr"      json:"xLgr"`
+					Nro     string `xml:"nro"       json:"nro"`
+					XCpl    string `xml:"xCpl"      json:"xCpl"`
+					XBairro string `xml:"xBairro"   json:"xBairro"`
+					CMun    string `xml:"cMun"      json:"cMun"`
+					XMun    string `xml:"xMun"      json:"xMun"`
+					UF      string `xml:"UF"        json:"UF"`
+					CEP     string `xml:"CEP"       json:"CEP"`
+					CPais   string `xml:"cPais"     json:"cPais"`
+					XPais   string `xml:"xPais"     json:"xPais"`
+					Fone    string `xml:"fone"      json:"fone"`
+				} `xml:"enderEmit" json:"enderEmit"`
+				IE  string `xml:"IE"   json:"IE"`
+				CRT string `xml:"CRT"  json:"CRT"`
+			} `xml:"emit" json:"emit"`
 			Dest struct {
-				Text      string `xml:",chardata"`
-				CNPJ      string `xml:"CNPJ"`
-				XNome     string `xml:"xNome"`
+				Text      string `xml:",chardata" json:"text"`
+				CNPJ      string `xml:"CNPJ"      json:"CNPJ"`
+				XNome     string `xml:"xNome"     json:"xNome"`
 				EnderDest struct {
-					Text    string `xml:",chardata"`
-					XLgr    string `xml:"xLgr"`
-					Nro     string `xml:"nro"`
-					XBairro string `xml:"xBairro"`
-					CMun    string `xml:"cMun"`
-					XMun    string `xml:"xMun"`
-					UF      string `xml:"UF"`
-					CEP     string `xml:"CEP"`
-					CPais   string `xml:"cPais"`
-					XPais   string `xml:"xPais"`
-				} `xml:"enderDest"`
-				IndIEDest string `xml:"indIEDest"`
-				IE        string `xml:"IE"`
-				Email     string `xml:"email"`
-			} `xml:"dest"`
+					Text    string `xml:",chardata" json:"text"`
+					XLgr    string `xml:"xLgr"      json:"xLgr"`
+					Nro     string `xml:"nro"       json:"nro"`
+					XCpl    string `xml:"xCpl"      json:"xCpl"`
+					XBairro string `xml:"xBairro"   json:"xBairro"`
+					CMun    string `xml:"cMun"      json:"cMun"`
+					XMun    string `xml:"xMun"      json:"xMun"`
+					UF      string `xml:"UF"        json:"UF"`
+					CEP     string `xml:"CEP"       json:"CEP"`
+					CPais   string `xml:"cPais"     json:"cPais"`
+					XPais   string `xml:"xPais"     json:"xPais"`
+					Fone    string `xml:"fone"      json:"fone"`
+				} `xml:"enderDest" json:"enderDest"`
+				IndIEDest string `xml:"indIEDest" json:"indIEDest"`
+				IE        string `xml:"IE"        json:"IE"`
+				Email     string `xml:"email"     json:"email"`
+			} `xml:"dest" json:"dest"`
 			Det struct {
-				Text  string `xml:",chardata"`
-				NItem string `xml:"nItem,attr"`
+				Text  string `xml:",chardata"   json:"text"`
+				NItem string `xml:"nItem,attr"  json:"nItem"`
 				Prod  struct {
-					Text     string `xml:",chardata"`
-					CProd    string `xml:"cProd"`
-					CEAN     string `xml:"cEAN"`
-					XProd    string `xml:"xProd"`
-					NCM      string `xml:"NCM"`
-					CEST     string `xml:"CEST"`
-					CFOP     string `xml:"CFOP"`
-					UCom     string `xml:"uCom"`
-					QCom     string `xml:"qCom"`
-					VUnCom   string `xml:"vUnCom"`
-					VProd    string `xml:"vProd"`
-					CEANTrib string `xml:"cEANTrib"`
-					UTrib    string `xml:"uTrib"`
-					QTrib    string `xml:"qTrib"`
-					VUnTrib  string `xml:"vUnTrib"`
-					IndTot   string `xml:"indTot"`
-				} `xml:"prod"`
+					Text     string `xml:",chardata" json:"text"`
+					CProd    string `xml:"cProd"     json:"cProd"`
+					CEAN     string `xml:"cEAN"      json:"cEAN"`
+					XProd    string `xml:"xProd"     json:"xProd"`
+					NCM      string `xml:"NCM"       json:"NCM"`
+					CEST     string `xml:"CEST"      json:"CEST"`
+					CFOP     string `xml:"CFOP"      json:"CFOP"`
+					UCom     string `xml:"uCom"      json:"uCom"`
+					QCom     string `xml:"qCom"      json:"qCom"`
+					VUnCom   string `xml:"vUnCom"    json:"vUnCom"`
+					VProd    string `xml:"vProd"     json:"vProd"`
+					CEANTrib string `xml:"cEANTrib"  json:"cEANTrib"`
+					UTrib    string `xml:"uTrib"     json:"uTrib"`
+					QTrib    string `xml:"qTrib"     json:"qTrib"`
+					VUnTrib  string `xml:"vUnTrib"   json:"vUnTrib"`
+					IndTot   string `xml:"indTot"    json:"indTot"`
+				} `xml:"prod" json:"prod"`
 				Imposto struct {
-					Text string `xml:",chardata"`
+					Text string `xml:",chardata" json:"text"`
 					ICMS struct {
-						Text   string `xml:",chardata"`
+						Text   string `xml:",chardata" json:"text"`
 						ICMS40 struct {
-							Text string `xml:",chardata"`
-							Orig string `xml:"orig"`
-							CST  string `xml:"CST"`
-						} `xml:"ICMS40"`
-					} `xml:"ICMS"`
+							Text string `xml:",chardata" json:"text"`
+							Orig string `xml:"orig"      json:"orig"`
+							CST  string `xml:"CST"       json:"CST"`
+						} `xml:"ICMS40" json:"ICMS40"`
+					} `xml:"ICMS" json:"ICMS"`
 					PIS struct {
-						Text  string `xml:",chardata"`
+						Text  string `xml:",chardata" json:"text"`
 						PISNT struct {
-							Text string `xml:",chardata"`
-							CST  string `xml:"CST"`
-						} `xml:"PISNT"`
-					} `xml:"PIS"`
+							Text string `xml:",chardata" json:"text"`
+							CST  string `xml:"CST"       json:"CST"`
+						} `xml:"PISNT" json:"PISNT"`
+					} `xml:"PIS" json:"PIS"`
 					COFINS struct {
-						Text     string `xml:",chardata"`
+						Text     string `xml:",chardata" json:"text"`
 						COFINSNT struct {
-							Text string `xml:",chardata"`
-							CST  string `xml:"CST"`
-						} `xml:"COFINSNT"`
-					} `xml:"COFINS"`
-				} `xml:"imposto"`
-			} `xml:"det"`
+							Text string `xml:",chardata" json:"text"`
+							CST  string `xml:"CST"       json:"CST"`
+						} `xml:"COFINSNT" json:"COFINSNT"`
+					} `xml:"COFINS" json:"COFINS"`
+				} `xml:"imposto" json:"imposto"`
+			} `xml:"det" json:"det"`
 			Total struct {
-				Text    string `xml:",chardata"`
+				Text    string `xml:",chardata" json:"text"`
 				ICMSTot struct {
-					Text       string `xml:",chardata"`
-					VBC        string `xml:"vBC"`
-					VICMS      string `xml:"vICMS"`
-					VICMSDeson string `xml:"vICMSDeson"`
-					VFCP       string `xml:"vFCP"`
-					VBCST      string `xml:"vBCST"`
-					VST        string `xml:"vST"`
-					VFCPST     string `xml:"vFCPST"`
-					VFCPSTRet  string `xml:"vFCPSTRet"`
-					VProd      string `xml:"vProd"`
-					VFrete     string `xml:"vFrete"`
-					VSeg       string `xml:"vSeg"`
-					VDesc      string `xml:"vDesc"`
-					VII        string `xml:"vII"`
-					VIPI       string `xml:"vIPI"`
-					VIPIDevol  string `xml:"vIPIDevol"`
-					VPIS       string `xml:"vPIS"`
-					VCOFINS    string `xml:"vCOFINS"`
-					VOutro     string `xml:"vOutro"`
-					VNF        string `xml:"vNF"`
-				} `xml:"ICMSTot"`
-			} `xml:"total"`
+					Text       string `xml:",chardata"  json:"text"`
+					VBC        string `xml:"vBC"        json:"vBC"`
+					VICMS      string `xml:"vICMS"      json:"vICMS"`
+					VICMSDeson string `xml:"vICMSDeson" json:"vICMSDeson"`
+					VFCP       string `xml:"vFCP"       json:"vFCP"`
+					VBCST      string `xml:"vBCST"      json:"vBCST"`
+					VST        string `xml:"vST"        json:"vST"`
+					VFCPST     string `xml:"vFCPST"     json:"vFCPST"`
+					VFCPSTRet  string `xml:"vFCPSTRet"  json:"vFCPSTRet"`
+					VProd      string `xml:"vProd"      json:"vProd"`
+					VFrete     string `xml:"vFrete"     json:"vFrete"`
+					VSeg       string `xml:"vSeg"       json:"vSeg"`
+					VDesc      string `xml:"vDesc"      json:"vDesc"`
+					VII        string `xml:"vII"        json:"vII"`
+					VIPI       string `xml:"vIPI"       json:"vIPI"`
+					VIPIDevol  string `xml:"vIPIDevol"  json:"vIPIDevol"`
+					VPIS       string `xml:"vPIS"       json:"vPIS"`
+					VCOFINS    string `xml:"vCOFINS"    json:"vCOFINS"`
+					VOutro     string `xml:"vOutro"     json:"vOutro"`
+					VNF        string `xml:"vNF"        json:"vNF"`
+				} `xml:"ICMSTot" json:"ICMSTot"`
+			} `xml:"total" json:"total"`
 			Transp struct {
-				Text       string `xml:",chardata"`
-				ModFrete   string `xml:"modFrete"`
+				Text       string `xml:",chardata" json:"text"`
+				ModFrete   string `xml:"modFrete"  json:"modFrete"`
 				Transporta struct {
-					Text  string `xml:",chardata"`
-					CPF   string `xml:"CPF"`
-					XNome string `xml:"xNome"`
-				} `xml:"transporta"`
+					Text  string `xml:",chardata" json:"text"`
+					CPF   string `xml:"CPF"       json:"CPF"`
+					XNome string `xml:"xNome"     json:"xNome"`
+				} `xml:"transporta" json:"transporta"`
 				Vol struct {
-					Text  string `xml:",chardata"`
-					QVol  string `xml:"qVol"`
-					Esp   string `xml:"esp"`
-					NVol  string `xml:"nVol"`
-					PesoL string `xml:"pesoL"`
-					PesoB string `xml:"pesoB"`
-				} `xml:"vol"`
-			} `xml:"transp"`
+					Text  string `xml:",chardata" json:"text"`
+					QVol  string `xml:"qVol"      json:"qVol"`
+					Esp   string `xml:"esp"       json:"esp"`
+					NVol  string `xml:"nVol"      json:"nVol"`
+					PesoL string `xml:"pesoL"     json:"pesoL"`
+					PesoB string `xml:"pesoB"     json:"pesoB"`
+				} `xml:"vol" json:"vol"`
+			} `xml:"transp" json:"transp"`
 			Pag struct {
-				Text   string `xml:",chardata"`
+				Text   string `xml:",chardata" json:"text"`
 				DetPag struct {
-					Text   string `xml:",chardata"`
-					IndPag string `xml:"indPag"`
-					TPag   string `xml:"tPag"`
-					VPag   string `xml:"vPag"`
-				} `xml:"detPag"`
-			} `xml:"pag"`
+					Text   string `xml:",chardata" json:"chardata"`
+					IndPag string `xml:"indPag"    json:"indPag"`
+					TPag   string `xml:"tPag"      json:"tPag"`
+					VPag   string `xml:"vPag"      json:"vPag"`
+				} `xml:"detPag" json:"detPag"`
+			} `xml:"pag" json:"pag"`
 			InfAdic struct {
-				Text   string `xml:",chardata"`
-				InfCpl string `xml:"infCpl"`
-			} `xml:"infAdic"`
-		} `xml:"infNFe"`
+				Text   string `xml:",chardata" json:"text"`
+				InfCpl string `xml:"infCpl"    json:"infCpl"`
+			} `xml:"infAdic" json:"infAdic"`
+		} `xml:"infNFe" json:"infNFe"`
 		Signature struct {
-			Text       string `xml:",chardata"`
+			Text       string `xml:",chardata" json:"text"`
 			Xmlns      string `xml:"xmlns,attr"`
 			SignedInfo struct {
-				Text                   string `xml:",chardata"`
+				Text                   string `xml:",chardata" json:"text"`
 				CanonicalizationMethod struct {
-					Text      string `xml:",chardata"`
-					Algorithm string `xml:"Algorithm,attr"`
-				} `xml:"CanonicalizationMethod"`
+					Text      string `xml:",chardata"      json:"text"`
+					Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+				} `xml:"CanonicalizationMethod" json:"CanonicalizationMethod"`
 				SignatureMethod struct {
-					Text      string `xml:",chardata"`
-					Algorithm string `xml:"Algorithm,attr"`
-				} `xml:"SignatureMethod"`
+					Text      string `xml:",chardata"      json:"text"`
+					Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+				} `xml:"SignatureMethod" json:"SignatureMethod"`
 				Reference struct {
-					Text       string `xml:",chardata"`
-					URI        string `xml:"URI,attr"`
+					Text       string `xml:",chardata" json:"text"`
+					URI        string `xml:"URI,attr"  json:"URI"`
 					Transforms struct {
-						Text      string `xml:",chardata"`
+						Text      string `xml:",chardata" json:"text"`
 						Transform []struct {
-							Text      string `xml:",chardata"`
-							Algorithm string `xml:"Algorithm,attr"`
-						} `xml:"Transform"`
-					} `xml:"Transforms"`
+							Text      string `xml:",chardata"      json:"text"`
+							Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+						} `xml:"Transform" json:"Transform"`
+					} `xml:"Transforms" json:"Transforms"`
 					DigestMethod struct {
-						Text      string `xml:",chardata"`
-						Algorithm string `xml:"Algorithm,attr"`
-					} `xml:"DigestMethod"`
-					DigestValue string `xml:"DigestValue"`
-				} `xml:"Reference"`
-			} `xml:"SignedInfo"`
-			SignatureValue string `xml:"SignatureValue"`
+						Text      string `xml:",chardata"      json:"text"`
+						Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+					} `xml:"DigestMethod" json:"DigestMethod"`
+					DigestValue string `xml:"DigestValue" json:"DigestValue"`
+				} `xml:"Reference" json:"Reference"`
+			} `xml:"SignedInfo" json:"SignedInfo"`
+			SignatureValue string `xml:"SignatureValue" json:"SignatureValue"`
 			KeyInfo        struct {
-				Text     string `xml:",chardata"`
+				Text     string `xml:",chardata" json:"text"`
 				X509Data struct {
-					Text            string `xml:",chardata"`
-					X509Certificate string `xml:"X509Certificate"`
-				} `xml:"X509Data"`
-			} `xml:"KeyInfo"`
-		} `xml:"Signature"`
-	} `xml:"NFe"`
+					Text            string `xml:",chardata"       json:"text"`
+					X509Certificate string `xml:"X509Certificate" json:"X509Certificate"`
+				} `xml:"X509Data" json:"X509Data"`
+			} `xml:"KeyInfo" json:"KeyInfo"`
+		} `xml:"Signature" json:"Signature"`
+	} `xml:"NFe" json:"NFe"`
 	ProtNFe struct {
-		Text    string `xml:",chardata"`
-		Versao  string `xml:"versao,attr"`
+		Text    string `xml:",chardata"   json:"text"`
+		Versao  string `xml:"versao,attr" json:"versao"`
 		InfProt struct {
-			Text     string `xml:",chardata"`
-			TpAmb    string `xml:"tpAmb"`
-			VerAplic string `xml:"verAplic"`
-			ChNFe    string `xml:"chNFe"`
-			DhRecbto string `xml:"dhRecbto"`
-			NProt    string `xml:"nProt"`
-			DigVal   string `xml:"digVal"`
-			CStat    string `xml:"cStat"`
-			XMotivo  string `xml:"xMotivo"`
-		} `xml:"infProt"`
-	} `xml:"protNFe"`
+			Text     string `xml:",chardata" json:"text"`
+			TpAmb    string `xml:"tpAmb"     json:"tpAmb"`
+			VerAplic string `xml:"verAplic"  json:"verAplic"`
+			ChNFe    string `xml:"chNFe"     json:"chNFe"`
+			DhRecbto string `xml:"dhRecbto"  json:"dhRecbto"`
+			NProt    string `xml:"nProt"     json:"nProt"`
+			DigVal   string `xml:"digVal"    json:"digVal"`
+			CStat    string `xml:"cStat"     json:"cStat"`
+			XMotivo  string `xml:"xMotivo"   json:"xMotivo"`
+		} `xml:"infProt" json:"infProt"`
+	} `xml:"protNFe" json:"protNFe"`
 }
