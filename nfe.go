@@ -1,6 +1,9 @@
 package plugnotas
 
-import "fmt"
+import (
+	"encoding/xml"
+	"fmt"
+)
 
 type NFe struct {
 	Codigo                     *string           `json:"codigo,omitempty"`
@@ -88,6 +91,18 @@ func (c *Client) ConsultarNFe(id string) (*NFeResumo, error) {
 		return &nfes[0], err
 	}
 	return &NFeResumo{}, err
+}
+
+func (c *Client) ConsultarNFeProc(id string) (*NfeProc, error) {
+	resp := new(NfeProc)
+	data, err := c.DownloadNFeXML(id)
+	if err != nil {
+		return nil, err
+	}
+	if err = xml.Unmarshal([]byte(data), resp); err != nil {
+		return nil, err
+	}
+	return resp, err
 }
 
 func (c *Client) ListarNFes(cpfCnpj string) (lista NFeListagemResumo, err error) {
