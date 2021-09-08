@@ -38,7 +38,7 @@ type NfeProc struct {
 			} `xml:"ide" json:"ide"`
 			Emit struct {
 				Text      string `xml:",chardata" json:"text"`
-				CPF       string `xml:"CPF"       json:"CPF"`
+				CPF       string `xml:"CPF"       json:"cpf"`
 				XNome     string `xml:"xNome"     json:"xNome"`
 				XFant     string `xml:"xFant"     json:"xFant"`
 				EnderEmit struct {
@@ -49,18 +49,18 @@ type NfeProc struct {
 					XBairro string `xml:"xBairro"   json:"xBairro"`
 					CMun    string `xml:"cMun"      json:"cMun"`
 					XMun    string `xml:"xMun"      json:"xMun"`
-					UF      string `xml:"UF"        json:"UF"`
-					CEP     string `xml:"CEP"       json:"CEP"`
+					UF      string `xml:"UF"        json:"uf"`
+					CEP     string `xml:"CEP"       json:"cep"`
 					CPais   string `xml:"cPais"     json:"cPais"`
 					XPais   string `xml:"xPais"     json:"xPais"`
 					Fone    string `xml:"fone"      json:"fone"`
 				} `xml:"enderEmit" json:"enderEmit"`
-				IE  string `xml:"IE"   json:"IE"`
-				CRT string `xml:"CRT"  json:"CRT"`
+				IE  string `xml:"IE"   json:"ie"`
+				CRT string `xml:"CRT"  json:"crt"`
 			} `xml:"emit" json:"emit"`
 			Dest struct {
 				Text      string `xml:",chardata" json:"text"`
-				CNPJ      string `xml:"CNPJ"      json:"CNPJ"`
+				CNPJ      string `xml:"CNPJ"      json:"cnpj"`
 				XNome     string `xml:"xNome"     json:"xNome"`
 				EnderDest struct {
 					Text    string `xml:",chardata" json:"text"`
@@ -70,8 +70,8 @@ type NfeProc struct {
 					XBairro string `xml:"xBairro"   json:"xBairro"`
 					CMun    string `xml:"cMun"      json:"cMun"`
 					XMun    string `xml:"xMun"      json:"xMun"`
-					UF      string `xml:"UF"        json:"UF"`
-					CEP     string `xml:"CEP"       json:"CEP"`
+					UF      string `xml:"UF"        json:"uf"`
+					CEP     string `xml:"CEP"       json:"cep"`
 					CPais   string `xml:"cPais"     json:"cPais"`
 					XPais   string `xml:"xPais"     json:"xPais"`
 					Fone    string `xml:"fone"      json:"fone"`
@@ -88,9 +88,9 @@ type NfeProc struct {
 					CProd    string `xml:"cProd"     json:"cProd"`
 					CEAN     string `xml:"cEAN"      json:"cEAN"`
 					XProd    string `xml:"xProd"     json:"xProd"`
-					NCM      string `xml:"NCM"       json:"NCM"`
-					CEST     string `xml:"CEST"      json:"CEST"`
-					CFOP     string `xml:"CFOP"      json:"CFOP"`
+					NCM      string `xml:"NCM"       json:"ncm"`
+					CEST     string `xml:"CEST"      json:"cest"`
+					CFOP     string `xml:"CFOP"      json:"cfop"`
 					UCom     string `xml:"uCom"      json:"uCom"`
 					QCom     string `xml:"qCom"      json:"qCom"`
 					VUnCom   string `xml:"vUnCom"    json:"vUnCom"`
@@ -108,23 +108,23 @@ type NfeProc struct {
 						ICMS40 struct {
 							Text string `xml:",chardata" json:"text"`
 							Orig string `xml:"orig"      json:"orig"`
-							CST  string `xml:"CST"       json:"CST"`
-						} `xml:"ICMS40" json:"ICMS40"`
-					} `xml:"ICMS" json:"ICMS"`
+							CST  string `xml:"CST"       json:"cst"`
+						} `xml:"ICMS40" json:"icms40"`
+					} `xml:"ICMS" json:"icms"`
 					PIS struct {
 						Text  string `xml:",chardata" json:"text"`
 						PISNT struct {
 							Text string `xml:",chardata" json:"text"`
-							CST  string `xml:"CST"       json:"CST"`
-						} `xml:"PISNT" json:"PISNT"`
-					} `xml:"PIS" json:"PIS"`
+							CST  string `xml:"CST"       json:"cst"`
+						} `xml:"PISNT" json:"pisnt"`
+					} `xml:"PIS" json:"pis"`
 					COFINS struct {
 						Text     string `xml:",chardata" json:"text"`
 						COFINSNT struct {
 							Text string `xml:",chardata" json:"text"`
-							CST  string `xml:"CST"       json:"CST"`
-						} `xml:"COFINSNT" json:"COFINSNT"`
-					} `xml:"COFINS" json:"COFINS"`
+							CST  string `xml:"CST"       json:"cst"`
+						} `xml:"COFINSNT" json:"cofinsnt"`
+					} `xml:"COFINS" json:"cofins"`
 				} `xml:"imposto" json:"imposto"`
 			} `xml:"det" json:"det"`
 			Total struct {
@@ -150,14 +150,14 @@ type NfeProc struct {
 					VCOFINS    string `xml:"vCOFINS"    json:"vCOFINS"`
 					VOutro     string `xml:"vOutro"     json:"vOutro"`
 					VNF        string `xml:"vNF"        json:"vNF"`
-				} `xml:"ICMSTot" json:"ICMSTot"`
+				} `xml:"ICMSTot" json:"icmsTot"`
 			} `xml:"total" json:"total"`
 			Transp struct {
 				Text       string `xml:",chardata" json:"text"`
 				ModFrete   string `xml:"modFrete"  json:"modFrete"`
 				Transporta struct {
 					Text  string `xml:",chardata" json:"text"`
-					CPF   string `xml:"CPF"       json:"CPF"`
+					CPF   string `xml:"CPF"       json:"cpf"`
 					XNome string `xml:"xNome"     json:"xNome"`
 				} `xml:"transporta" json:"transporta"`
 				Vol struct {
@@ -190,38 +190,38 @@ type NfeProc struct {
 				Text                   string `xml:",chardata" json:"text"`
 				CanonicalizationMethod struct {
 					Text      string `xml:",chardata"      json:"text"`
-					Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
-				} `xml:"CanonicalizationMethod" json:"CanonicalizationMethod"`
+					Algorithm string `xml:"Algorithm,attr" json:"algorithm"`
+				} `xml:"CanonicalizationMethod" json:"canonicalizationMethod"`
 				SignatureMethod struct {
 					Text      string `xml:",chardata"      json:"text"`
-					Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
-				} `xml:"SignatureMethod" json:"SignatureMethod"`
+					Algorithm string `xml:"Algorithm,attr" json:"algorithm"`
+				} `xml:"SignatureMethod" json:"signatureMethod"`
 				Reference struct {
 					Text       string `xml:",chardata" json:"text"`
-					URI        string `xml:"URI,attr"  json:"URI"`
+					URI        string `xml:"URI,attr"  json:"uri"`
 					Transforms struct {
 						Text      string `xml:",chardata" json:"text"`
 						Transform []struct {
 							Text      string `xml:",chardata"      json:"text"`
-							Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+							Algorithm string `xml:"Algorithm,attr" json:"algorithm"`
 						} `xml:"Transform" json:"Transform"`
 					} `xml:"Transforms" json:"Transforms"`
 					DigestMethod struct {
 						Text      string `xml:",chardata"      json:"text"`
-						Algorithm string `xml:"Algorithm,attr" json:"Algorithm"`
+						Algorithm string `xml:"Algorithm,attr" json:"algorithm"`
 					} `xml:"DigestMethod" json:"DigestMethod"`
-					DigestValue string `xml:"DigestValue" json:"DigestValue"`
+					DigestValue string `xml:"DigestValue" json:"digestValue"`
 				} `xml:"Reference" json:"Reference"`
 			} `xml:"SignedInfo" json:"SignedInfo"`
-			SignatureValue string `xml:"SignatureValue" json:"SignatureValue"`
+			SignatureValue string `xml:"SignatureValue" json:"signatureValue"`
 			KeyInfo        struct {
 				Text     string `xml:",chardata" json:"text"`
 				X509Data struct {
 					Text            string `xml:",chardata"       json:"text"`
-					X509Certificate string `xml:"X509Certificate" json:"X509Certificate"`
-				} `xml:"X509Data" json:"X509Data"`
-			} `xml:"KeyInfo" json:"KeyInfo"`
-		} `xml:"Signature" json:"Signature"`
+					X509Certificate string `xml:"X509Certificate" json:"x509Certificate"`
+				} `xml:"X509Data" json:"x509Data"`
+			} `xml:"KeyInfo" json:"keyInfo"`
+		} `xml:"Signature" json:"signature"`
 	} `xml:"NFe" json:"NFe"`
 	ProtNFe struct {
 		Text    string `xml:",chardata"   json:"text"`
