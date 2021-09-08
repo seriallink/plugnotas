@@ -41,6 +41,8 @@ type NfeProc struct {
 				CPF       string `xml:"CPF"       json:"cpf"`
 				XNome     string `xml:"xNome"     json:"xNome"`
 				XFant     string `xml:"xFant"     json:"xFant"`
+				IE        string `xml:"IE"        json:"ie"`
+				CRT       string `xml:"CRT"       json:"crt"`
 				EnderEmit struct {
 					Text    string `xml:",chardata" json:"text"`
 					XLgr    string `xml:"xLgr"      json:"xLgr"`
@@ -55,13 +57,14 @@ type NfeProc struct {
 					XPais   string `xml:"xPais"     json:"xPais"`
 					Fone    string `xml:"fone"      json:"fone"`
 				} `xml:"enderEmit" json:"enderEmit"`
-				IE  string `xml:"IE"   json:"ie"`
-				CRT string `xml:"CRT"  json:"crt"`
 			} `xml:"emit" json:"emit"`
 			Dest struct {
 				Text      string `xml:",chardata" json:"text"`
 				CNPJ      string `xml:"CNPJ"      json:"cnpj"`
 				XNome     string `xml:"xNome"     json:"xNome"`
+				IndIEDest string `xml:"indIEDest" json:"indIEDest"`
+				IE        string `xml:"IE"        json:"ie"`
+				Email     string `xml:"email"     json:"email"`
 				EnderDest struct {
 					Text    string `xml:",chardata" json:"text"`
 					XLgr    string `xml:"xLgr"      json:"xLgr"`
@@ -76,9 +79,6 @@ type NfeProc struct {
 					XPais   string `xml:"xPais"     json:"xPais"`
 					Fone    string `xml:"fone"      json:"fone"`
 				} `xml:"enderDest" json:"enderDest"`
-				IndIEDest string `xml:"indIEDest" json:"indIEDest"`
-				IE        string `xml:"IE"        json:"IE"`
-				Email     string `xml:"email"     json:"email"`
 			} `xml:"dest" json:"dest"`
 			Det struct {
 				Text  string `xml:",chardata"   json:"text"`
