@@ -17,6 +17,7 @@ type Empresa struct {
 	Telefone                 *Telefone   `json:"telefone,omitempty"`
 	NFSe                     *NFSeObject `json:"nfse,omitempty"`
 	NFe                      *NFeObject  `json:"nfe,omitempty"`
+	NFCe                     *NFCeObject `json:"nfce,omitempty"`
 }
 
 func (c *Client) ListarEmpresas() (empresas []Empresa, err error) {
