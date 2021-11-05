@@ -1,6 +1,6 @@
 package plugnotas
 
-type NotasReferenciada struct {
+type NotaReferenciada struct {
 	NFe           []NotaReferenciadaNFe `json:"nfe,omitempty"`
 	NFePapel      []NFePapel            `json:"nfePapel,omitempty"`
 	ProdutorRural []ProdutorRural       `json:"produtorRural,omitempty"`
