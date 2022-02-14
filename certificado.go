@@ -44,6 +44,7 @@ func (c *Client) CadastrarCertificado(arquivo, senha, email string) (id string, 
 		part io.Writer
 		resp *http.Response
 		body []byte
+		emsg ErrorMessage
 		gmsg GenericMessage
 	)
 
@@ -105,10 +106,13 @@ func (c *Client) CadastrarCertificado(arquivo, senha, email string) (id string, 
 	// close response
 	defer resp.Body.Close()
 
-	// parse response
-	if err = json.Unmarshal(body, &gmsg); err != nil {
-		return
+	// check for error message
+	if err = json.Unmarshal(body, &emsg); err == nil && emsg.Error() != "" {
+		return "", &emsg
 	}
+
+	// parse generic message
+	_ = json.Unmarshal(body, &gmsg)
 
 	// verify status code
 	if NotIn(resp.StatusCode, http.StatusOK, http.StatusCreated, http.StatusAccepted) {
