@@ -15,12 +15,8 @@ type ErrorMessage struct {
 }
 
 type Error struct {
-	Message string `json:"message"`
-	Data    *Data  `json:"data"`
-}
-
-type Data struct {
-	Fields map[string]string
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
 }
 
 func (m GenericMessage) Error() string {
