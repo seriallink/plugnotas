@@ -38,3 +38,17 @@ func FloatPtr(value float64) *float64 {
 func BoolPtr(value bool) *bool {
 	return &value
 }
+
+func Ternary(condition bool, x, y interface{}) interface{} {
+
+	if condition {
+		return x
+	}
+
+	return y
+
+}
+
+func TernaryStr(condition bool, x, y string) string {
+	return Ternary(condition, x, y).(string)
+}
