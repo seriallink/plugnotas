@@ -22,6 +22,7 @@ type NFe struct {
 	CodigoIdentificacaoDestino *string           `json:"codigoIdentificacaoDestino,omitempty"`
 	CodigoMunicipioFatoGerador *string           `json:"codigoMunicipioFatoGerador,omitempty"`
 	InformacoesComplementares  *string           `json:"informacoesComplementares,omitempty"`
+	Intermediador              *int              `json:"intermediador,omitempty"`
 	Saida                      *bool             `json:"saida,omitempty"`
 	Presencial                 *bool             `json:"presencial,omitempty"`
 	ConsumidorFinal            *bool             `json:"consumidorFinal,omitempty"`
@@ -32,6 +33,7 @@ type NFe struct {
 	Total                      *Total            `json:"total,omitempty"`
 	Transporte                 *Transporte       `json:"transporte,omitempty"`
 	Cobranca                   *Cobranca         `json:"cobranca,omitempty"`
+	IntermediadorTransacao     *Intermediador    `json:"intermediadorTransacao,omitempty"`
 	Itens                      []Item            `json:"itens,omitempty"`
 	Pagamentos                 []Pagamento       `json:"pagamentos,omitempty"`
 }
