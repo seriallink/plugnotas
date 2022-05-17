@@ -18,6 +18,7 @@ type Certificado struct {
 	Hash       string `json:"hash,omitempty"`
 	Vencimento string `json:"vencimento,omitempty"`
 	Email      string `json:"email,omitempty"`
+	Status     string `json:"status,omitempty"`
 }
 
 func (c *Client) ListarCertificados() (certificados []Certificado, err error) {
