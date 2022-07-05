@@ -129,13 +129,13 @@ func (c *Client) ConsultarCorrecaoNFe(id string) (*CorrecaoStatus, error) {
 	return resp, err
 }
 
-func (c *Client) DownloadNFePDF(id string, cce bool) (pdf []byte, err error) {
+func (c *Client) DownloadNFePDF(id, status string) (pdf []byte, err error) {
 	pdf = make([]byte, 0)
-	err = c.Get(fmt.Sprintf("nfe/%s/"+TernaryStr(cce, "cce/", "")+"pdf", id), nil, nil, &pdf)
+	err = c.Get(fmt.Sprintf("nfe/%s/"+TernaryStr(status != "", status+"/", status)+"pdf", id), nil, nil, &pdf)
 	return
 }
 
-func (c *Client) DownloadNFeXML(id string, cce bool) (xml string, err error) {
-	err = c.Get(fmt.Sprintf("nfe/%s/"+TernaryStr(cce, "cce/", "")+"xml", id), nil, nil, &xml)
+func (c *Client) DownloadNFeXML(id, status string) (xml string, err error) {
+	err = c.Get(fmt.Sprintf("nfe/%s/"+TernaryStr(status != "", status+"/", status)+"xml", id), nil, nil, &xml)
 	return
 }
