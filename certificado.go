@@ -26,15 +26,8 @@ func (c *Client) ListarCertificados() (certificados []Certificado, err error) {
 	return
 }
 
-func (c *Client) ConsultaCertificado(id string) (certificado Certificado, err error) {
-	var certificados []Certificado
-	if err = c.Get("certificado/", nil, nil, &certificados); err == nil {
-		for _, c := range certificados {
-			if c.Id == id {
-				return c, nil
-			}
-		}
-	}
+func (c *Client) ConsultarCertificado(id string) (certificado Certificado, err error) {
+	err = c.Get("certificado/"+id, nil, nil, &certificado)
 	return
 }
 
