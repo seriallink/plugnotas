@@ -13,12 +13,12 @@ import (
 )
 
 type Certificado struct {
-	Id         string `json:"id,omitempty"`
-	Nome       string `json:"nome,omitempty"`
-	Hash       string `json:"hash,omitempty"`
-	Vencimento string `json:"vencimento,omitempty"`
-	Email      string `json:"email,omitempty"`
-	Status     string `json:"status,omitempty"`
+	Id         string   `json:"id,omitempty"`
+	Nome       string   `json:"nome,omitempty"`
+	Hash       string   `json:"hash,omitempty"`
+	Vencimento DateTime `json:"vencimento,omitempty"`
+	Email      string   `json:"email,omitempty"`
+	Status     string   `json:"status,omitempty"`
 }
 
 func (c *Client) ListarCertificados() (certificados []Certificado, err error) {
