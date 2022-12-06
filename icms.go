@@ -6,7 +6,7 @@ type ICMS struct {
 	Aliquota               *float64                   `json:"aliquota,omitempty"`
 	Valor                  *float64                   `json:"valor,omitempty"`
 	Desoneracao            *Desoneracao               `json:"desoneracao,omitempty"`
-	BaseCalculo            *BaseCalculoObj            `json:"baseCalculoIcms,omitempty"`
+	BaseCalculo            *BaseCalculoObj            `json:"baseCalculo,omitempty"`
 	FundoCombatePobreza    *FundoCombatePobreza       `json:"fundoCombatePobreza,omitempty"`
 	Efetivo                *Efetivo                   `json:"efetivo,omitempty"`
 	OperacaoPropria        *OperacaoPropria           `json:"operacaoPropria,omitempty"`
